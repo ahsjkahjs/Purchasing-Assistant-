@@ -1,0 +1,34 @@
+{
+  "decision": "待用户弹窗确认",
+  "decision_source": "未填；填用户弹窗答复摘要与日期，例如“用户弹窗选择：对候选前3家做标准背调（2026-10-25）”",
+  "target_suppliers": ["SUP-001", "SUP-002"],
+  "dimensions": [
+    "工商与实控",
+    "司法与失信",
+    "产能与设备",
+    "资质与认证",
+    "客户与业绩",
+    "出口与履约",
+    "财务与开票",
+    "风险信号"
+  ],
+  "depth": "标准",
+  "weight_profile": "均衡",
+  "redlines": ["失信被执行/限高", "重大质量安全环保处罚"],
+  "evidence_strictness": "每条结论必须有来源链接",
+  "usage": "内部决策参考",
+  "notes": "",
+  "findings": {
+    "SUP-001": {
+      "工商与实控": {
+        "summary": "请替换：统一信用代码、注册资本、成立年限、经营范围、实控人、社保人数",
+        "score": 3,
+        "confidence": "中",
+        "source_url": "https://www.gsxt.gov.cn/",
+        "source_date": "YYYY-MM-DD",
+        "status": "已核查",
+        "flags": []
+      }
+    }
+  }
+}

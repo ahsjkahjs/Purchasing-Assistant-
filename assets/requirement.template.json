@@ -1,0 +1,29 @@
+{
+  "project_name": "请填写采购项目名称",
+  "intake_status": "待交互采集",
+  "product_name": "请填写设备或产品名称",
+  "model": "请填写型号或首轮比较基准",
+  "application": "请填写用途和工况",
+  "processes": [],
+  "configuration": "请选择普通PLC、伺服节能、伺服加换模或两套都报价",
+  "procurement_strategy": "请选择综合性价比、质量稳定优先、价格优先或交期优先",
+  "intake_notes": "",
+  "specifications": [
+    "请填写可检验的技术规格、材质、产能、接口或图纸版本"
+  ],
+  "quantity": 1,
+  "unit": "台",
+  "currency": "CNY",
+  "delivery_location": "请填写收货城市及详细到厂口径",
+  "required_delivery_date": "YYYY-MM-DD",
+  "tax_rate": "13%",
+  "trade_terms": "含税、含包装、含运费到厂",
+  "warranty_months": 12,
+  "payment_days": 30,
+  "quotation_deadline": "YYYY-MM-DD",
+  "buyer_company": "请填写采购方公司",
+  "buyer_contact": "请填写公开业务联系人及联系方式",
+  "additional_requirements": [
+    "报价须注明有效期、偏离项、售后范围和认证/检测证明"
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "equipment": "虚构500吨标准四柱液压机（普通PLC）",
+  "currency": "CNY",
+  "confidence": "中",
+  "limitations": [
+    "全部数字为功能测试用虚构值，不能用于真实采购",
+    "公开价格样本口径不一致，不是正式成交价"
+  ],
+  "cost_items": [
+    {"name": "结构与钢材", "low": 30000, "high": 40000, "basis": "虚构测试值"},
+    {"name": "液压与电气", "low": 50000, "high": 65000, "basis": "虚构测试值"},
+    {"name": "加工、外协、包装与检验", "low": 30000, "high": 40000, "basis": "虚构测试值"}
+  ],
+  "manufacturing_overhead_rate": {"low": 0.08, "high": 0.12},
+  "sales_management_rate": {"low": 0.05, "high": 0.08},
+  "profit_rate": {"low": 0.12, "high": 0.22},
+  "tax_rate": 0.13,
+  "market_samples": [
+    {
+      "supplier": "虚构区域厂家A",
+      "model": "500吨四柱普通PLC",
+      "low": 180000,
+      "high": 200000,
+      "price_basis": "公开挂牌，税运口径未明",
+      "sample_type": "平台挂牌",
+      "source_url": "https://example.com/price-a",
+      "source_date": "2026-10-25",
+      "notes": "虚构测试样本，不是正式报价"
+    },
+    {
+      "supplier": "虚构厂家B",
+      "model": "500吨四柱标准机",
+      "low": 210000,
+      "high": 250000,
+      "price_basis": "厂家范围价，配置待核",
+      "sample_type": "厂家价格区间",
+      "source_url": "https://example.com/price-b",
+      "source_date": "2026-10-25",
+      "notes": "虚构测试样本，不是正式报价"
+    }
+  ],
+  "budget_recommendation": {
+    "low": 200000,
+    "high": 280000,
+    "basis": "虚构测试预算，仅用于验证计算"
+  }
+}

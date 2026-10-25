@@ -1,0 +1,48 @@
+{
+  "equipment": "请填写设备及关键配置",
+  "currency": "CNY",
+  "confidence": "低",
+  "limitations": [
+    "成本项为采购前估算，不是供应商成本审计",
+    "市场样本可能含引流价、不同税运口径或缩水配置，不能直接当作成交价"
+  ],
+  "cost_items": [
+    {
+      "name": "结构与钢材",
+      "low": 0,
+      "high": 0,
+      "basis": "请填写重量、单价或供应商拆分依据"
+    }
+  ],
+  "manufacturing_overhead_rate": {
+    "low": 0.08,
+    "high": 0.12
+  },
+  "sales_management_rate": {
+    "low": 0.05,
+    "high": 0.08
+  },
+  "profit_rate": {
+    "low": 0.12,
+    "high": 0.22
+  },
+  "tax_rate": 0.13,
+  "market_samples": [
+    {
+      "supplier": "请填写厂家或来源名称",
+      "model": "请填写型号及关键配置",
+      "low": 0,
+      "high": 0,
+      "price_basis": "请填写含税/未税、出厂/到厂、是否含运费和选配",
+      "sample_type": "厂家挂牌/平台挂牌/媒体价格/正式报价",
+      "source_url": "https://example.com/replace-me",
+      "source_date": "YYYY-MM-DD",
+      "notes": "必须说明是否为正式报价及可能缺项"
+    }
+  ],
+  "budget_recommendation": {
+    "low": 0,
+    "high": 0,
+    "basis": "请填写预算依据和适用边界"
+  }
+}

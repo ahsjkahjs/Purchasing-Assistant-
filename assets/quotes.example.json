@@ -1,0 +1,59 @@
+[
+  {
+    "supplier_id": "SUP-001",
+    "currency": "CNY",
+    "normalized_total_cost": 120000,
+    "quality_score": 88,
+    "lead_time_days": 35,
+    "warranty_months": 18,
+    "payment_days": 30,
+    "completeness_score": 95,
+    "risk_penalty": 0,
+    "eligible": true,
+    "exclusion_reason": "",
+    "notes": "虚构样例：质量材料较完整",
+    "evidence": [
+      {"field": "normalized_total_cost", "file": "SUP-001__quote-a.pdf", "page": "1", "quote": "虚构原文：含税到厂总价 120000 元"},
+      {"field": "quality_score", "file": "SUP-001__quote-a.pdf", "page": "2", "quote": "虚构原文：附检测报告及 18 个月质保"},
+      {"field": "lead_time_days", "file": "SUP-001__quote-a.pdf", "page": "1", "quote": "虚构原文：交期 35 天"}
+    ]
+  },
+  {
+    "supplier_id": "SUP-002",
+    "currency": "CNY",
+    "normalized_total_cost": 108000,
+    "quality_score": 72,
+    "lead_time_days": 28,
+    "warranty_months": 12,
+    "payment_days": 20,
+    "completeness_score": 85,
+    "risk_penalty": 3,
+    "eligible": true,
+    "exclusion_reason": "",
+    "notes": "虚构样例：价格较低但质量证明较少",
+    "evidence": [
+      {"field": "normalized_total_cost", "file": "SUP-002__quote-b.pdf", "page": "1", "quote": "虚构原文：含税到厂总价 108000 元"},
+      {"field": "quality_score", "file": "SUP-002__quote-b.pdf", "page": "2", "quote": "虚构原文：提供出厂检验，未附第三方检测"},
+      {"field": "lead_time_days", "file": "SUP-002__quote-b.pdf", "page": "1", "quote": "虚构原文：交期 28 天"}
+    ]
+  },
+  {
+    "supplier_id": "SUP-003",
+    "currency": "CNY",
+    "normalized_total_cost": 114000,
+    "quality_score": 82,
+    "lead_time_days": 42,
+    "warranty_months": 12,
+    "payment_days": 45,
+    "completeness_score": 90,
+    "risk_penalty": 0,
+    "eligible": true,
+    "exclusion_reason": "",
+    "notes": "虚构样例：价格与质量较均衡",
+    "evidence": [
+      {"field": "normalized_total_cost", "file": "SUP-003__quote-c.pdf", "page": "1", "quote": "虚构原文：含税到厂总价 114000 元"},
+      {"field": "quality_score", "file": "SUP-003__quote-c.pdf", "page": "2", "quote": "虚构原文：附材质及性能检测材料"},
+      {"field": "lead_time_days", "file": "SUP-003__quote-c.pdf", "page": "1", "quote": "虚构原文：交期 42 天"}
+    ]
+  }
+]

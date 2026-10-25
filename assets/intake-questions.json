@@ -1,0 +1,112 @@
+{
+  "version": 1,
+  "instructions": "使用宿主环境的交互式问题组件分两轮弹窗。每题最多4个选项，支持多选和自定义；不得把推荐项当成用户已经选择。没有弹窗能力时，用同样问题的简短Markdown表单代替，得到答复后再填 requirement.json。",
+  "rounds": [
+    {
+      "name": "产品与工况",
+      "questions": [
+        {
+          "field": "processes",
+          "header": "主要工艺",
+          "question": "这台设备主要做什么工艺？",
+          "multiSelect": true,
+          "options": [
+            {"label": "薄板拉伸", "description": "拉伸、翻边，需要关注顶出/液压垫和抗偏载"},
+            {"label": "压制成型", "description": "通用压制、成型、弯曲，按标准机询价"},
+            {"label": "校正压装", "description": "零件校正、压装，更关注开口、行程和工作台"},
+            {"label": "粉末/非金属", "description": "粉末、塑料、复材等，需要按工艺复核"}
+          ]
+        },
+        {
+          "field": "parameter_basis",
+          "header": "参数基准",
+          "question": "工作台、行程和开口高度按哪种方式确定？",
+          "multiSelect": false,
+          "options": [
+            {"label": "标准参数", "description": "锁定公称力并采用厂家标准机参数，逐项列出比较"},
+            {"label": "加大台面/行程", "description": "自定义具体工作台、行程和开口尺寸"},
+            {"label": "按工件选型", "description": "提供工件和模具尺寸，让厂家推荐并逐项偏离"},
+            {"label": "厂家标准机", "description": "只锁主要吨位，其他参数由厂家填写后比较"}
+          ]
+        },
+        {
+          "field": "configuration",
+          "header": "控制配置",
+          "question": "希望厂家按什么配置报价？",
+          "multiSelect": false,
+          "options": [
+            {"label": "普通PLC", "description": "普通PLC加插装阀，满足一般标准工况"},
+            {"label": "伺服节能", "description": "伺服节能加PLC，关注能耗和压力控制"},
+            {"label": "伺服加换模", "description": "伺服、移动工作台和快速换模"},
+            {"label": "两套都报价", "description": "普通PLC与伺服分别报价，便于比较"}
+          ]
+        },
+        {
+          "field": "technical_constraints",
+          "header": "硬性约束",
+          "question": "是否有必须满足的安全、认证、电源或安装限制？",
+          "multiSelect": false,
+          "options": [
+            {"label": "按国标和安全配置", "description": "急停、双手操作、光电保护、滑块防下落"},
+            {"label": "有出口/认证要求", "description": "需要CE或其他目标市场认证，另行填写"},
+            {"label": "厂房空间受限", "description": "需要先核对高度、占地、地基和吊装条件"},
+            {"label": "暂无特殊要求", "description": "先按国内标准厂房和380V/50Hz评估"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "商务与交付",
+      "questions": [
+        {
+          "field": "quantity",
+          "header": "采购数量",
+          "question": "本次计划采购几台，是否有后续批量？",
+          "multiSelect": false,
+          "options": [
+            {"label": "1台", "description": "先采购单台验证工艺和设备"},
+            {"label": "2-3台", "description": "小批量采购，要求阶梯价"},
+            {"label": "首台+后续批量", "description": "先买1台，报价须含后续批量价格"},
+            {"label": "仅做预算", "description": "暂不下单，先获取价格区间"}
+          ]
+        },
+        {
+          "field": "delivery_location",
+          "header": "交付地点",
+          "question": "设备交付和安装地点在哪里？",
+          "multiSelect": false,
+          "options": [
+            {"label": "河南郑州", "description": "按郑州到厂、安装调试口径询价"},
+            {"label": "河南省内其他城市", "description": "在自定义答案中填写城市"},
+            {"label": "省外工厂", "description": "在自定义答案中填写省市和到厂条件"},
+            {"label": "暂未确定", "description": "先按出厂价比较，运费另行估算"}
+          ]
+        },
+        {
+          "field": "procurement_strategy",
+          "header": "采购策略",
+          "question": "选择供应商最优先考虑什么？",
+          "multiSelect": false,
+          "options": [
+            {"label": "综合性价比", "description": "质量、价格、交期综合平衡"},
+            {"label": "质量稳定优先", "description": "优先制造证据、关键件、验收和售后"},
+            {"label": "价格优先", "description": "优先总成本，但不接受安全质量缺项"},
+            {"label": "交期优先", "description": "优先现货或最短交期，同时防止配置缩水"}
+          ]
+        },
+        {
+          "field": "budget_and_deadline",
+          "header": "预算/时间",
+          "question": "预算和到货时间属于哪一档？",
+          "multiSelect": false,
+          "options": [
+            {"label": "预算未定，按市场评估", "description": "先做成本与市场价评估再定预算"},
+            {"label": "希望30天内到货", "description": "优先现货或短交期，但须核验配置"},
+            {"label": "可等45-60天", "description": "可按厂家正常排产定制"},
+            {"label": "有明确预算", "description": "在自定义答案中填写预算上限和日期"}
+          ]
+        }
+      ]
+    }
+  ]
+}

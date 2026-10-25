@@ -1,0 +1,111 @@
+{
+  "version": 1,
+  "when": "在 compare/report 之后、把候选名单交给用户之前运行；不得跳过这一步就宣称采购完成。",
+  "instructions": "使用宿主环境的交互式问题组件分两轮弹窗。每题最多 4 个选项，支持多选和自定义；不得把推荐项当成用户已经选择。没有弹窗能力时，用同样问题的简短 Markdown 表单代替，得到答复后再填 background-check.json，并把答复摘要写进 decision_source。",
+  "rounds": [
+    {
+      "name": "是否调查与调查谁",
+      "questions": [
+        {
+          "field": "decision",
+          "header": "是否背调",
+          "question": "候选已排出，是否需要针对其中几家做背景调查（工商、司法、产能、资质、业绩等）来展现综合实力？",
+          "multiSelect": false,
+          "options": [
+            {"label": "是，调查候选前几家", "description": "对报价评分排名靠前的 2–3 家做标准背调（推荐）"},
+            {"label": "是，调查全部清单厂家", "description": "对 suppliers.json 全部厂家做背调，耗时更长"},
+            {"label": "是，只调查我指定的厂家", "description": "在自定义答案中填写供应商 ID，逗号分隔"},
+            {"label": "暂不需要", "description": "跳过背调，直接在完成报告中标注未做背景调查"}
+          ]
+        },
+        {
+          "field": "target_scope",
+          "header": "调查对象",
+          "question": "背调覆盖哪些对象？",
+          "multiSelect": false,
+          "options": [
+            {"label": "候选前 3 家", "description": "以 analyze 步骤的 shortlist 为准"},
+            {"label": "优先询价的全部厂家", "description": "清单中 tier 为优先询价的厂家"},
+            {"label": "A 级源头厂家", "description": "只查有生产证据的 A 级厂家"},
+            {"label": "我自己指定", "description": "在自定义答案中填写供应商 ID，逗号分隔"}
+          ]
+        },
+        {
+          "field": "dimensions",
+          "header": "调查维度",
+          "question": "重点从哪些维度展现厂家综合实力？（可多选）",
+          "multiSelect": true,
+          "options": [
+            {"label": "工商与实控", "description": "统一信用代码、注册资本、成立年限、经营范围、实控人、人员规模"},
+            {"label": "司法与失信", "description": "失信被执行、限制高消费、裁判文书、经营异常、行政处罚"},
+            {"label": "产能与设备", "description": "产线数量与型号、年产能、厂区占地、员工规模、是否真源头文件"},
+            {"label": "资质与认证", "description": "ISO9001、产品/行业标准、特种资质、检测能力、标准执行口径"}
+          ]
+        },
+        {
+          "field": "depth",
+          "header": "调查深度",
+          "question": "背调做多深？",
+          "multiSelect": false,
+          "options": [
+            {"label": "标准", "description": "政府公开平台＋企业官网＋公开工商数据，覆盖所选维度（推荐）"},
+            {"label": "简版", "description": "只查工商主体、司法风险、官网产能三类核心事实"},
+            {"label": "深度", "description": "标准项＋招投标中标、专利、环评/排污许可、年报财务、海外客户线索"},
+            {"label": "深度＋交叉验证", "description": "深度项并对关键数据双源交叉核验，标注每条数据的时间戳"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "评价口径与红线",
+      "questions": [
+        {
+          "field": "weight_profile",
+          "header": "看重点",
+          "question": "综合实力按哪个口径加权？",
+          "multiSelect": false,
+          "options": [
+            {"label": "均衡", "description": "八个维度均衡权重（默认）"},
+            {"label": "制造能力优先", "description": "产能与设备、资质与认证权重加倍"},
+            {"label": "合规与风险优先", "description": "司法与失信、风险信号权重加倍"},
+            {"label": "履约与交付优先", "description": "客户与业绩、出口与履约权重加倍"}
+          ]
+        },
+        {
+          "field": "redlines",
+          "header": "一票否决",
+          "question": "哪些情况一旦查实就一票否决？（可多选）",
+          "multiSelect": true,
+          "options": [
+            {"label": "失信被执行/限高", "description": "被列入失信被执行人、限制高消费或经营异常未移出"},
+            {"label": "重大质量安全环保处罚", "description": "近三年有重大质量、安全生产或环保处罚记录"},
+            {"label": "主体不符/贸易商冒充厂家", "description": "自称厂家但无生产证据，且不能提供原厂材质单"},
+            {"label": "规模或资质严重不符", "description": "实缴出资、社保人数、厂房规模与其宣称能力明显不符"}
+          ]
+        },
+        {
+          "field": "evidence_strictness",
+          "header": "证据要求",
+          "question": "背调结论的证据要达到什么标准？",
+          "multiSelect": false,
+          "options": [
+            {"label": "每条结论必须有来源链接", "description": "缺来源的结论一律标“未查到”，不写入摘要（推荐）"},
+            {"label": "允许标注未查到", "description": "查不到就写未查到并计入总分，不作负分"},
+            {"label": "只认近 12 个月证据", "description": "过期数据不得用于评分，仅作参考备注"}
+          ]
+        },
+        {
+          "field": "usage",
+          "header": "用途",
+          "question": "这份背调报告给谁看？",
+          "multiSelect": false,
+          "options": [
+            {"label": "内部决策参考", "description": "输出完整明细表供采购评估"},
+            {"label": "签约前复核", "description": "重点突出红线项、待核验清单和需写入合同的条款"},
+            {"label": "给老板的一页纸摘要", "description": "先给综合实力排名与结论，明细附在后面"}
+          ]
+        }
+      ]
+    }
+  ]
+}
